@@ -1,0 +1,15 @@
+.DS_Store
+xcuserdata/
+DerivedData/
+vital/*.xcodeproj
+vital/build/
+vital/Payload/
+vital/*.ipa
+vital/Vital/Info.plist
+vital/Vital/Vital.entitlements
+saldo/*.xcodeproj
+saldo/build/
+saldo/Payload/
+saldo/*.ipa
+saldo/Saldo/Info.plist
+__pycache__/
