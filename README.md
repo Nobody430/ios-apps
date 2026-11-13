@@ -1,36 +1,36 @@
-# iOS-Apps
+# iOS apps
 
-Zwei eigene iPhone-Apps (SwiftUI, iOS 17+), automatisch gebaut und über TestFlight verteilt.
-Keine Abos, kein zentraler Dienst: Alle Keys werden in den Apps auf dem Gerät eingegeben, nichts davon steht im Code.
+Two personal iPhone apps (SwiftUI, iOS 17+), built automatically and distributed through TestFlight.
+No subscriptions and no central service: all keys are entered in the apps on the device, none of them is in the code.
 
-| App | Ordner | Inhalt |
+| App | Folder | What it does |
 |---|---|---|
-| 💪 **Vital** | `vital/` | Training mit KI-Coach, Ernährung, Gewicht, Medikamenten-Erinnerung |
-| 💰 **Saldo** | `saldo/` | Finanzen: Apple-Pay-Erfassung, Bankimport, Budgets, Krypto |
+| 💪 **Vital** | `vital/` | training with an AI coach, nutrition, weight, medication reminders |
+| 💰 **Saldo** | `saldo/` | finances: Apple Pay capture, bank import, budgets, crypto |
 
-Die Reise-App **Awaymate** (früher Skylog) liegt in einem eigenen Projekt:
+The travel app **Awaymate** (formerly Skylog) lives in its own project:
 [Nobody430/awaymate](https://github.com/Nobody430/awaymate).
 
-## Was liegt wo
+## What is where
 
-| Ort | Inhalt |
+| Where | What |
 |---|---|
-| `vital/`, `saldo/` | die Apps (je ein XcodeGen-Projekt, `project.yml`) |
-| `.github/workflows/testflight.yml` | baut beide Apps und lädt sie zu TestFlight hoch |
-| `.github/workflows/ios.yml` | unsignierter Test-Build, nur von Hand |
-| `.github/scripts/` | Einrichtung von Bundle-IDs, Zertifikat und Profilen über die App-Store-Connect-API |
+| `vital/`, `saldo/` | the apps (one XcodeGen project each, `project.yml`) |
+| `.github/workflows/testflight.yml` | builds both apps and uploads them to TestFlight |
+| `.github/workflows/ios.yml` | unsigned test build, manual only |
+| `.github/scripts/` | sets up bundle IDs, certificate and profiles through the App Store Connect API |
 
 ## Build
 
-- Jeder Push, der eine App betrifft, baut beide Apps und lädt sie zu TestFlight hoch.
-- Benötigte Repository-Secrets: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_P8`, `APPLE_TEAM_ID`
-  (App-Store-Connect-API-Key mit Rolle Admin).
-- Bundle-IDs, Capabilities, Zertifikat und Profile werden über die API automatisch eingerichtet.
-- Die Build-Nummer ist `300 + Laufnummer` des Workflows.
-- Wer das Projekt forkt und selbst verteilen will, braucht ein eigenes Apple-Developer-Konto, eigene Bundle-IDs
-  (in den `project.yml`) und eigene App-Einträge in App Store Connect.
+- Every push that touches an app builds both apps and uploads them to TestFlight.
+- Required repository secrets: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_P8`, `APPLE_TEAM_ID`
+  (App Store Connect API key with the Admin role).
+- Bundle IDs, capabilities, certificate and profiles are set up automatically through the API.
+- The build number is `300 + run number` of the workflow.
+- If you fork the project and want to distribute it yourself, you need your own Apple Developer account, your own
+  bundle IDs (in the `project.yml` files) and your own app records in App Store Connect.
 
-## Sicherheit
+## Security
 
-- Keine Keys, Tokens oder Passwörter im Repository; alles liegt in GitHub-Secrets oder auf dem Gerät.
-- Wer einen Fehler mit Sicherheitsbezug findet, meldet ihn bitte über ein privates GitHub-Advisory statt öffentlich.
+- No keys, tokens or passwords in the repository; everything is in GitHub secrets or on the device.
+- If you find a security-related bug, please report it through a private GitHub advisory instead of publicly.
